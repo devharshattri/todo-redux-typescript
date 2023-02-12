@@ -1,0 +1,11 @@
+.App{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+}
+
+.deleteAll{
+    background-color: rgb(165, 20, 17);
+    gap: 0.4rem;
+}
