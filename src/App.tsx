@@ -1,9 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
-import "./App.css";
 import AddTaskForm from "./components/AddTaskForm";
 import ShowTodoList from "./components/ShowTodoList";
 import { ToDo, deleteAll } from "./store/todoSlice";
 import { useEffect } from "react";
+import { AppContainer } from "./App.style";
+import { ActionButton } from "./components/AddTaskForm.style";
 
 function App() {
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ function App() {
   }, [list]);
 
   const deleteAllButton = (
-    <button
+    <ActionButton
       className="action-Button"
       style={{ backgroundColor: "rgb(165, 20, 17)", gap: "0.4rem" }}
       onClick={deleteAllHandler}
@@ -33,16 +34,16 @@ function App() {
         ></path>
       </svg>
       Delete All
-    </button>
+    </ActionButton>
   );
 
   return (
     <div>
-      <div className="App">
+      <AppContainer>
         <AddTaskForm />
         <div>{list && <ShowTodoList />}</div>
         <div>{list.length !== 0 && <div>{deleteAllButton}</div>}</div>
-      </div>
+      </AppContainer>
     </div>
   );
 }

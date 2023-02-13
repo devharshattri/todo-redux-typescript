@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../store/todoSlice";
-import "./AddTaskForm.css";
-
+import {
+  ActionButton,
+  AddTaskFormContainer,
+  H2,
+  TaskInputForm,
+} from "./AddTaskForm.style";
 let id = 0;
 
 function AddTaskForm() {
@@ -22,10 +26,9 @@ function AddTaskForm() {
 
   return (
     <div>
-      <h2>Todo App</h2>
-      <form className="add-task-form" onSubmit={handleSubmit}>
-        <input
-          className="task-inputbox"
+      <H2>Todo App</H2>
+      <AddTaskFormContainer onSubmit={handleSubmit}>
+        <TaskInputForm
           placeholder="Task.."
           type="text"
           value={input}
@@ -34,10 +37,10 @@ function AddTaskForm() {
           }}
           required
         />
-        <button className="action-Button" type="submit">
+        <ActionButton className="action-Button" type="submit">
           Add
-        </button>
-      </form>
+        </ActionButton>
+      </AddTaskFormContainer>
     </div>
   );
 }
